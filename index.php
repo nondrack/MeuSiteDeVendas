@@ -1,4 +1,3 @@
-
 <?php
 
 // Classe Produto
@@ -92,12 +91,11 @@ $nomeLoja = $lojaAtual->getNomeFormatado();
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8" />
-    <title>Produtos - <?= $nomeLoja ?></title>
+    <title>Produtos - <?= htmlspecialchars($nomeLoja) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
@@ -134,19 +132,19 @@ $nomeLoja = $lojaAtual->getNomeFormatado();
 <?php include 'header.php'; ?>
 
 <main class="container py-5">
-    <h1 class="text-center text-danger mb-5">Produts da <?= $nomeLoja ?></h1>
+    <h1 class="text-center text-danger mb-5">Produtos da <?= htmlspecialchars($nomeLoja) ?></h1>
 
     <?php foreach ($categorias as $categoria): ?>
         <h2 class="categoria-titulo"><?= htmlspecialchars($categoria) ?></h2>
         <div class="row">
-            <?php foreach ($produtos[$loja] as $produto): ?>
-                <?php if ($produto['categoria'] === $categoria): ?>
+            <?php foreach ($produtos as $produto): ?>
+                <?php if ($produto->categoria === $categoria): ?>
                     <div class="col-md-6 col-lg-4 mb-4">
                         <div class="card produto-card shadow-sm h-100">
-                            <img src="<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>" class="card-img-top" />
+                            <img src="<?= htmlspecialchars($produto->imagem) ?>" alt="<?= htmlspecialchars($produto->nome) ?>" class="card-img-top" />
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title"><?= htmlspecialchars($produto['nome']) ?></h5>
-                                <p class="card-text text-muted">Categoria: <?= htmlspecialchars($produto['categoria']) ?></p>
+                                <h5 class="card-title"><?= htmlspecialchars($produto->nome) ?></h5>
+                                <p class="card-text text-muted">Categoria: <?= htmlspecialchars($produto->categoria) ?></p>
                                 <a href="#" class="btn btn-outline-danger mt-auto">Ver mais</a>
                             </div>
                         </div>
@@ -155,18 +153,12 @@ $nomeLoja = $lojaAtual->getNomeFormatado();
             <?php endforeach; ?>
         </div>
     <?php endforeach; ?>
-    
+
 </main>
-<?php
-    include 'footer.php'
-?>
 
-
+<?php include 'footer.php'; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 </body>
 </html>
-
-
-
