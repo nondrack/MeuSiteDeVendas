@@ -134,7 +134,7 @@ $nomeLoja = $lojaAtual->getNomeFormatado();
 <?php include 'header.php'; ?>
 
 <main class="container py-5">
-    <h1 class="text-center text-danger mb-5">Produtos da <?= $nomeLoja ?></h1>
+    <h1 class="text-center text-danger mb-5">Produts da <?= $nomeLoja ?></h1>
 
     <?php foreach ($categorias as $categoria): ?>
         <h2 class="categoria-titulo"><?= htmlspecialchars($categoria) ?></h2>
@@ -155,7 +155,13 @@ $nomeLoja = $lojaAtual->getNomeFormatado();
             <?php endforeach; ?>
         </div>
     <?php endforeach; ?>
+    
 </main>
+<?php
+    include 'footer.php'
+?>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
