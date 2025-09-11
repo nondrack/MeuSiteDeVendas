@@ -1,28 +1,97 @@
 
 <?php
-// Detecta página atual pela query string, default Shopee
-$loja = $_GET['loja'] ?? 'shopee';
 
-// Dados dos produtos por loja
-$produtos = [
-    'shopee' => [
-        ['nome' => 'Smartphone Xiaomi', 'categoria' => 'Eletrônicos', 'imagem' => 'https://via.placeholder.com/300x180?text=Xiaomi'],
-        ['nome' => 'Tênis Esportivo', 'categoria' => 'Moda', 'imagem' => 'https://via.placeholder.com/300x180?text=Tênis+Shopee'],
-        ['nome' => 'Relógio Inteligente', 'categoria' => 'Eletrônicos', 'imagem' => 'https://via.placeholder.com/300x180?text=Relógio+Shopee'],
-    ],
-    'amazon' => [
-        ['nome' => 'Kindle Paperwhite', 'categoria' => 'Eletrônicos', 'imagem' => 'https://via.placeholder.com/300x180?text=Kindle+Amazon'],
-        ['nome' => 'Fones Bluetooth', 'categoria' => 'Eletrônicos', 'imagem' => 'https://via.placeholder.com/300x180?text=Fones+Amazon'],
-        ['nome' => 'Cafeteira Elétrica', 'categoria' => 'Eletrodomésticos', 'imagem' => 'https://via.placeholder.com/300x180?text=Cafeteira+Amazon'],
-    ]
-];
+// Classe Produto
+class Produto {
+    public string $nome;
+    public string $categoria;
+    public string $imagem;
 
-// Pega categorias únicas para a loja atual
-$categorias = array_unique(array_column($produtos[$loja], 'categoria'));
+    public function __construct(string $nome, string $categoria, string $imagem) {
+        $this->nome = $nome;
+        $this->categoria = $categoria;
+        $this->imagem = $imagem;
+    }
+}
 
-// Nome da loja para exibição no dropdown e título
-$nomeLoja = ucfirst($loja);
+// Classe Loja
+class Loja {
+    public string $nome;
+    /** @var Produto[] */
+    private array $produtos;
+
+    public function __construct(string $nome, array $produtos = []) {
+        $this->nome = $nome;
+        $this->produtos = $produtos;
+    }
+
+    public function adicionarProduto(Produto $produto): void {
+        $this->produtos[] = $produto;
+    }
+
+    public function getProdutos(): array {
+        return $this->produtos;
+    }
+
+    public function getCategorias(): array {
+        $categorias = array_map(fn($produto) => $produto->categoria, $this->produtos);
+        return array_unique($categorias);
+    }
+
+    public function getNomeFormatado(): string {
+        return ucfirst($this->nome);
+    }
+}
+
+// Classe para gerenciar múltiplas lojas
+class GerenciadorDeLojas {
+    /** @var Loja[] */
+    private array $lojas = [];
+
+    public function adicionarLoja(Loja $loja): void {
+        $this->lojas[$loja->nome] = $loja;
+    }
+
+    public function getLoja(string $nome): ?Loja {
+        return $this->lojas[$nome] ?? null;
+    }
+}
+
+// Criando instância do gerenciador
+$gerenciador = new GerenciadorDeLojas();
+
+// Criando lojas e produtos
+$shopee = new Loja('shopee', [
+    new Produto('Smartphone Xiaomi', 'Eletrônicos', 'https://via.placeholder.com/300x180?text=Xiaomi'),
+    new Produto('Tênis Esportivo', 'Moda', 'https://via.placeholder.com/300x180?text=Tênis+Shopee'),
+    new Produto('Relógio Inteligente', 'Eletrônicos', 'https://via.placeholder.com/300x180?text=Relógio+Shopee'),
+]);
+
+$amazon = new Loja('amazon', [
+    new Produto('Kindle Paperwhite', 'Eletrônicos', 'https://via.placeholder.com/300x180?text=Kindle+Amazon'),
+    new Produto('Fones Bluetooth', 'Eletrônicos', 'https://via.placeholder.com/300x180?text=Fones+Amazon'),
+    new Produto('Cafeteira Elétrica', 'Eletrodomésticos', 'https://via.placeholder.com/300x180?text=Cafeteira+Amazon'),
+]);
+
+// Adiciona lojas ao gerenciador
+$gerenciador->adicionarLoja($shopee);
+$gerenciador->adicionarLoja($amazon);
+
+// Detecta loja atual via query string (default: shopee)
+$lojaAtualNome = $_GET['loja'] ?? 'shopee';
+$lojaAtual = $gerenciador->getLoja($lojaAtualNome);
+
+if (!$lojaAtual) {
+    die("Loja não encontrada.");
+}
+
+// Obtendo dados
+$produtos = $lojaAtual->getProdutos();
+$categorias = $lojaAtual->getCategorias();
+$nomeLoja = $lojaAtual->getNomeFormatado();
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
