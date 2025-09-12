@@ -5,32 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<style>
-             footer {
-            box-shadow: 0 1.3px 15px rgba(0, 0, 0, 0.1);
-            background-color: #f8f9fa;
-        }
-
-        footer a {
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-            font-weight: 600;
-        }
-
-        footer .fs-5 {
-            transition: all 0.3s ease;
-        }
-
-        footer .fs-5:hover {
-            transform: scale(1.2);
-
-        }
-
-    </style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 
@@ -80,7 +55,7 @@
                 </div>
             </footer>
 
-iv>
+
             </div>
 
     </footer>

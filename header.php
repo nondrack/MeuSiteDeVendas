@@ -6,34 +6,8 @@
   <title>Produtos da Shopee</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .navbar {
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .navbar-brand {
-      font-weight: bold;
-      color: #dc3545;
-    }
-    .nav-link.active {
-      font-weight: bold;
-      color: #dc3545 !important;
-    }
-    .dropdown-menu .active {
-      background-color: #dc3545;
-      color: white;
-    }
-    .hero-section {
-      padding: 60px 0;
-      text-align: center;
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      margin-top: 30px;
-      border-radius: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
 
@@ -100,11 +74,12 @@ switch ($paginaAtual) {
 
 
 
+
 <!-- Conteúdo principal -->
 <main class="container">
   <section class="hero-section">
-    <h1 class="display-5 mb-3">Bem-vindo à página de produtos <?= $nomeDropdown ?></h1>
-    <p class="lead text-muted">Confira abaixo os melhores produtos selecionados especialmente para você!</p>
+    <h1 class="display-5 fw-bold mb-3">Bem-vindo à página de produtos <?= $nomeDropdown ?></h1>
+    <p class="lead fw-bold  text-muted">Confira abaixo os melhores produtos selecionados especialmente para você!</p>
   </section>
 </main>
 

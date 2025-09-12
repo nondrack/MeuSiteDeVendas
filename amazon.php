@@ -25,40 +25,15 @@ $categorias = ['Acessórios Gamer', 'Placas de Vídeo', 'Teclados', 'Mouses'];
   <meta charset="UTF-8">
   <title>Produtos Gamer</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .produto-card {
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .produto-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.15);
-    }
-    .produto-card img {
-      height: 180px;
-      object-fit: cover;
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
-    }
-    .categoria-titulo {
-      border-left: 5px solid #dc3545;
-      padding-left: 10px;
-      margin-top: 2rem;
-      font-weight: 600;
-      color: #dc3545;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
   <div class="container py-5">
     <h1 class="text-center text-primary mb-5">Produtos Gamer</h1>
 
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs mb-4" id="categoriaTabs" role="tablist">
+    <ul class="nav nav-tabs mb-3" id="categoriaTabs" role="tablist">
       <?php foreach ($categorias as $index => $categoria): ?>
         <li class="nav-item" role="presentation">
           <button class="nav-link <?= $index === 0 ? 'active' : '' ?>"
@@ -96,6 +71,8 @@ $categorias = ['Acessórios Gamer', 'Placas de Vídeo', 'Teclados', 'Mouses'];
     </div>
 
   </div>
+
+  <?php include 'footer.php'; ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

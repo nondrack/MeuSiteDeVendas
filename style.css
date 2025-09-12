@@ -1,0 +1,102 @@
+/*===Geral====================*/
+body {
+  background: #e9f0f7;
+}
+
+/* ============ Home/index=============*/
+.produto-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.produto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+.produto-card img {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.categoria-titulo {
+  border-left: 5px solid #dc3545;
+  padding-left: 10px;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #dc3545;
+}
+
+/*=============Shopeen/Amazon============*/
+
+.produto-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.produto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+.produto-card img {
+  height: 180px;
+  object-fit: cover;
+}
+.categoria-titulo {
+  border-left: 4px solid #dc3545;
+  padding-left: 12px;
+  margin-top: 2rem;
+  font-weight: 600;
+  color: #dc3545;
+}
+
+/*=========footer======*/
+   footer {
+            box-shadow: 0 1.3px 15px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
+        }
+
+        footer a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        footer .fs-5 {
+            transition: all 0.3s ease;
+        }
+
+        footer .fs-5:hover {
+            transform: scale(1.2);
+
+        }
+
+        /*=============header=========*/
+        .navbar {
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: #dc3545;
+    }
+    .nav-link.active {
+      font-weight: bold;
+      color: #dc3545 !important;
+    }
+    .dropdown-menu .active {
+      background-color: #dc3545;
+      color: white;
+    }
+    .hero-section {
+      padding: 60px 0;
+      text-align: center;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-top: 30px;
+      border-radius: 10px;
+    }

@@ -106,40 +106,17 @@ $categoriasPC = ['Periféricos', 'Acessórios Gamer'];
   <meta charset="UTF-8" />
   <title>Produtos Gamer</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .produto-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .produto-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.15);
-    }
-    .produto-card img {
-      height: 180px;
-      object-fit: cover;
-    }
-    .categoria-titulo {
-      border-left: 4px solid #dc3545;
-      padding-left: 12px;
-      margin-top: 2rem;
-      font-weight: 600;
-      color: #dc3545;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
   <?php include 'header.php'; ?>
 
 <div class="container py-5">
-  <h1 class="text-center text-dark fw-bold mb-4">Produtos Gamer</h1>
+  <h1 class="text-center text-danger mb-5">Produtos Gamer</h1>
 
   <!-- Abas -->
-  <ul class="nav nav-tabs mb-4" id="tabsProduto" role="tablist">
+  <ul class="nav nav-tabs mb-3" id="tabsProduto" role="tablist">
     <li class="nav-item" role="presentation">
       <button
         class="nav-link active"
@@ -150,11 +127,12 @@ $categoriasPC = ['Periféricos', 'Acessórios Gamer'];
         role="tab"
         aria-controls="pc"
         aria-selected="true"
+        
       >
         PC
       </button>
     </li>
-    <!-- Futuras abas:
+    <!-- Futuras abas:  -->
     <li class="nav-item" role="presentation">
       <button
         class="nav-link"
@@ -169,8 +147,9 @@ $categoriasPC = ['Periféricos', 'Acessórios Gamer'];
         Consoles
       </button>
     </li>
-    -->
   </ul>
+
+
 
   <div class="tab-content" id="tabsProdutoContent">
     <!-- Aba PC -->

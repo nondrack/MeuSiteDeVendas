@@ -98,38 +98,14 @@ $nomeLoja = $lojaAtual->getNomeFormatado();
     <title>Produtos - <?= htmlspecialchars($nomeLoja) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
-        body {
-            background: #f8f9fa;
-        }
-        .produto-card {
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .produto-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.15);
-        }
-        .produto-card img {
-            height: 180px;
-            object-fit: cover;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-        .categoria-titulo {
-            border-left: 5px solid #dc3545;
-            padding-left: 10px;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            color: #dc3545;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+   
 </head>
 <body>
 
 <?php include 'header.php'; ?>
+
+
 
 <main class="container py-5">
     <h1 class="text-center text-danger mb-5">Produtos da <?= htmlspecialchars($nomeLoja) ?></h1>
